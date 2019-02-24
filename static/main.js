@@ -31,19 +31,15 @@
       	});
       };
 
-      $scope.getCityView = function() {
-      	var city_id = 1;
-      	$log.log($scope.city_id)
+      $scope.getCityView = function(city_id) {
       	$http.get('/city/'+city_id).then(function(result){
       		$scope.forecast = result.data;
-      		$log.log(result)
       	}, function(error){
       		$log.log(error);
       	});
       };
 
       $scope.getCities();
-      $scope.getCityView();
     }
   ]);
 

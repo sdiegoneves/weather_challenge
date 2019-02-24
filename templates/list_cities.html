@@ -13,7 +13,7 @@
         	<thead>
             	<tr>
                 	<th>Nome</th>
-                    <th>#</th>
+                  <th>#</th>
                 </tr>
             </thead>
             <tbody>
@@ -21,7 +21,7 @@
 	            	<div ng-if="cities.length !== 0">
 		            	<tr ng-repeat="item in cities">
 		                    <td>{{item.name}} - {{item.country_code}}</td>
-		                    <td><a class="btn btn-primary" ng-href="/view/{{item.key}}" ng-click="getCityView()" role="button">Forecast</a></td>
+		                    <td><a class="btn btn-primary" ng-href="/view/{{item.key}}" role="button">Forecast</a></td>
 		                </tr>
 	            	</div>
             	{% endraw %}

@@ -7,7 +7,7 @@
 {% endblock %}
 
 {% block content %}
-<input type="hidden" value="{{city_id}}" ng-model="city_id" />
+<input type="hidden" value="{{city_id}}" ng-model="city_id" ng-init="getCityView({{city_id}})" />
 {% raw %}
 <div class="row">
 	<div class="col-lg-12">
