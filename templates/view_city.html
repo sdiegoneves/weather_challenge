@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block header %}
+  <h1>
+  	{% block title %} Forecast {% endblock %}
+  	<a class="btn btn-outline-primary" href="/" role="button">Voltar</a>
+  </h1>
+{% endblock %}
+
+{% block content %}
+<input type="hidden" value="{{city_id}}" ng-model="city_id" />
+{% raw %}
+<div class="row">
+	<div class="col-lg-12">
+		<h2>{{forecast.name}} - {{forecast.country_code}}</h2>
+	</div>
+</div>
+<div class="row">
+
+	<div class="col-lg-3" ng-repeat="item in forecast.forecast">
+		<div class="card">
+		  <div class="card-body">
+		    <h4 class="card-title">{{item.dt_txt}}</h4>
+		    <p class="card-text" ng-repeat="weather in item.weather">
+		    	Tempo: {{weather.main}} / 
+		    	{{weather.description}} <br/>
+		    </p>
+		    <p class="card-text">
+		    	Velocidade vento: {{item.wind.speed}}<br/>
+		    </p>
+		  </div>
+		</div>
+	</div>
+</div>
+
+{% endraw %}
+{% endblock %}

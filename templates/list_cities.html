@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block header %}
+  <h1>
+  	{% block title %}Lista de cidades{% endblock %}
+  	<a class="btn btn-primary" href="/city/add" role="button">Adicionar</a>
+  </h1>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class="col-lg-12">
+		<table class="table table-striped">
+        	<thead>
+            	<tr>
+                	<th>Nome</th>
+                    <th>#</th>
+                </tr>
+            </thead>
+            <tbody>
+            	{% raw %}
+	            	<div ng-if="cities.length !== 0">
+		            	<tr ng-repeat="item in cities">
+		                    <td>{{item.name}} - {{item.country_code}}</td>
+		                    <td><a class="btn btn-primary" ng-href="/view/{{item.key}}" ng-click="getCityView()" role="button">Forecast</a></td>
+		                </tr>
+	            	</div>
+            	{% endraw %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
