@@ -64,8 +64,7 @@ def list_cities():
 	content_file = []
 	with open(file) as json_file:
 		content_file = json.load(json_file)
-
-	 	return output_json(content_file, 200)
+		return output_json(content_file, 200)
 
 
 def validade_city(city_name, country_code):

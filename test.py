@@ -18,14 +18,14 @@ class FlaskTestCase(unittest.TestCase):
             json.dump(content_file, outfile)
 
     def test_create_city(self):
-        response = self.app.post('/create', data=json.dumps(dict(name='Rio de janeiro', country_code="BR")),content_type='application/json')
-        assert "True" in response.data
+        response = self.app.post('/create', data=json.dumps(dict(name='Rio de janeiro', country_code="BR")),content_type='application/json')          
+        assert "True" in response.data.decode("utf-8")   
 
         response = self.app.post('/create', data=json.dumps(dict(name='Rio de janeiro', country_code="BG")),content_type='application/json')
-        assert "False" in response.data
+        assert "False" in response.data.decode("utf-8") 
 
         response = self.app.get('/city/1')
-        assert "Rio de janeiro" in response.data
+        assert "Rio de janeiro" in response.data.decode("utf-8") 
 
 if __name__ == '__main__':
     unittest.main()
